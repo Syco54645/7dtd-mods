@@ -13,9 +13,9 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <ModName>15SlotToolbelt</ModName>
-    <ModVersion>1.8.3</ModVersion>
-    <ModDescription>15 slot toolbelt.</ModDescription>
-    <ModId>5601</ModId>
+    <ModVersion>1.0.0</ModVersion>
+    <ModDescription>15 slot toolbelt with hotkeys.</ModDescription>
+    <!--ModId>5601</ModId-->
     <GamePath>C:\Program Files (x86)\Steam\steamapps\common\7 Days To Die</GamePath>
     <ModsPath>C:\Program Files (x86)\Steam\steamapps\common\7 Days To Die\Mods</ModsPath>
   </PropertyGroup>
@@ -51,9 +51,7 @@
     <Content Include="Config\XUi\windows.xml" />
     <Reference Include="Assembly-CSharp-firstpass">
       <HintPath>$(GamePath)\7DaysToDie_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
-    </Reference>
-    <Reference Include="GearsAPI">
-      <HintPath>GearsAPI.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Content Include="Config\XUi\windows.darknessfalls.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -74,15 +72,19 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Reference Include="InControl">
       <HintPath>$(GamePath)\7DaysToDie_Data\Managed\InControl.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="TfpHarmony">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\7 Days To Die\Mods\0_TFP_Harmony\TfpHarmony.dll</HintPath>
+      <HintPath>$(GamePath)\Mods\0_TFP_Harmony\TfpHarmony.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine">
       <HintPath>$(GamePath)\7DaysToDie_Data\Managed\UnityEngine.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.InputLegacyModule">
       <HintPath>$(GamePath)\7DaysToDie_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup Condition=" '$(Configuration)' != 'CI' ">
@@ -124,10 +126,10 @@
   <Target Name="AfterBuild" Condition=" '$(Configuration)' != 'CI' ">
     <XmlPoke XmlInputPath="$(OutputPath)\ModInfo.xml" Query="/xml/Name/@value" Value="$(ModName)" />
     <XmlPoke XmlInputPath="$(OutputPath)\ModInfo.xml" Query="/xml/DisplayName/@value" Value="$(ModName)" />
-    <XmlPoke XmlInputPath="$(OutputPath)\ModInfo.xml" Query="/xml/Author/@value" Value="Rizarttt" />
+    <XmlPoke XmlInputPath="$(OutputPath)\ModInfo.xml" Query="/xml/Author/@value" Value="Syco54645" />
     <XmlPoke XmlInputPath="$(OutputPath)\ModInfo.xml" Query="/xml/Description/@value" Value="$(ModDescription)" />
     <XmlPoke XmlInputPath="$(OutputPath)\ModInfo.xml" Query="/xml/Version/@value" Value="$(ModVersion)" />
-    <XmlPoke XmlInputPath="$(OutputPath)\ModInfo.xml" Query="/xml/Website/@value" Value="https://www.nexusmods.com/7daystodie/mods/$(ModId)" />
+    <!--XmlPoke XmlInputPath="$(OutputPath)\ModInfo.xml" Query="/xml/Website/@value" Value="https://www.nexusmods.com/7daystodie/mods/$(ModId)" /-->
     <Exec Condition=" '$(Configuration)' == 'Release' " Command="npm run generate_readme" WorkingDirectory="$(MSBuildProjectDirectory)\.." />
     <Exec Condition=" '$(Configuration)' == 'Release' " Command="npm run build --prefix -- $(AbsoluteOutputPath) $(ModName) $(ModVersion)" WorkingDirectory="$(MSBuildProjectDirectory)\.." />
   </Target>
