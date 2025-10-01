@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{90A1B09C-9B78-4C0B-88B1-4928F311D376}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>z15SlotToolbelt</RootNamespace>
+    <AssemblyName>z15SlotToolbelt</AssemblyName>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <ModName>15SlotToolbelt</ModName>
+    <ModVersion>1.8.3</ModVersion>
+    <ModDescription>15 slot toolbelt.</ModDescription>
+    <ModId>5601</ModId>
+    <GamePath>C:\Program Files (x86)\Steam\steamapps\common\7 Days To Die</GamePath>
+    <ModsPath>C:\Program Files (x86)\Steam\steamapps\common\7 Days To Die\Mods</ModsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>$(ModsPath)\ZZZZ_15SlotToolbelt</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>3</WarningLevel>
+    <AbsoluteOutputPath>$(MSBuildProjectDirectory)\$(OutputPath)</AbsoluteOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'CI|AnyCPU' ">
+    <OutputPath>bin\CI\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="config.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\XUi\windows.darknessfalls.xml" />
+    <Content Include="Config\XUi\windows.vanilla.xml" />
+    <Content Include="Config\XUi\windows.xml" />
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>$(GamePath)\7DaysToDie_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="GearsAPI">
+      <HintPath>GearsAPI.dll</HintPath>
+    </Reference>
+    <Content Include="Config\XUi\windows.darknessfalls.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\XUi\windows.vanilla.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\XUi\windows.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ModInfo.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Compile Include="Harmony\Main.cs" />
+    <Compile Include="Harmony\Patches\Hotkey.cs" />
+    <Compile Include="Harmony\Patches\HotkeyLabelNameProvider.cs" />
+    <Compile Include="Harmony\Patches\KhaineGB_Patch.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Reference Include="InControl">
+      <HintPath>$(GamePath)\7DaysToDie_Data\Managed\InControl.dll</HintPath>
+    </Reference>
+    <Reference Include="TfpHarmony">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\7 Days To Die\Mods\0_TFP_Harmony\TfpHarmony.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>$(GamePath)\7DaysToDie_Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>$(GamePath)\7DaysToDie_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup Condition=" '$(Configuration)' != 'CI' ">
+    <Reference Include="0Harmony">
+      <HintPath>$(GamePath)\Mods\0_TFP_Harmony\0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(GamePath)\7DaysToDie_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="LogLibrary">
+      <HintPath>$(GamePath)\7DaysToDie_Data\Managed\LogLibrary.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(GamePath)\7DaysToDie_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>$(GamePath)\7DaysToDie_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <HintPath>$(GamePath)\7DaysToDie_Data\Managed\Managed\System.Xml.Linq.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <HintPath>$(GamePath)\7DaysToDie_Data\Managed\Managed\System.Xml.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)' == 'CI'">
+  </ItemGroup>
+  <Target Name="BeforeBuild">
+    <RemoveDir Directories="$(OutputPath)" />
+  </Target>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="AfterBuild" Condition=" '$(Configuration)' != 'CI' ">
+    <XmlPoke XmlInputPath="$(OutputPath)\ModInfo.xml" Query="/xml/Name/@value" Value="$(ModName)" />
+    <XmlPoke XmlInputPath="$(OutputPath)\ModInfo.xml" Query="/xml/DisplayName/@value" Value="$(ModName)" />
+    <XmlPoke XmlInputPath="$(OutputPath)\ModInfo.xml" Query="/xml/Author/@value" Value="Rizarttt" />
+    <XmlPoke XmlInputPath="$(OutputPath)\ModInfo.xml" Query="/xml/Description/@value" Value="$(ModDescription)" />
+    <XmlPoke XmlInputPath="$(OutputPath)\ModInfo.xml" Query="/xml/Version/@value" Value="$(ModVersion)" />
+    <XmlPoke XmlInputPath="$(OutputPath)\ModInfo.xml" Query="/xml/Website/@value" Value="https://www.nexusmods.com/7daystodie/mods/$(ModId)" />
+    <Exec Condition=" '$(Configuration)' == 'Release' " Command="npm run generate_readme" WorkingDirectory="$(MSBuildProjectDirectory)\.." />
+    <Exec Condition=" '$(Configuration)' == 'Release' " Command="npm run build --prefix -- $(AbsoluteOutputPath) $(ModName) $(ModVersion)" WorkingDirectory="$(MSBuildProjectDirectory)\.." />
+  </Target>
+</Project>

@@ -1,0 +1,10 @@
+﻿<configs>
+	<conditional>
+		<if cond="mod_loaded('DarknessFalls')">
+			<include filename="windows.darknessfalls.xml" />
+		</if>
+		<else>
+			<include filename="windows.vanilla.xml" />
+		</else>
+	</conditional>
+</configs>

@@ -1,0 +1,59 @@
+<configs>
+    <set xpath="/windows/window[@name='windowToolbelt']">
+        <rect>
+            <sprite depth="8" name="backgroundMain" sprite="menu_empty3px" color="[black]" type="sliced" fillcenter="false" on_press="true" gamepad_selectable="false" />
+
+            <rect pos="3,-3" controller="Toolbelt">
+                <grid depth="10" name="inventory" rows="1" cols="15" pos="0,0" cell_width="75" cell_height="75" repeat_content="true">
+                    <item_stack name="0" />
+                </grid>
+                <grid depth="10" name="inventory2" rows="1" cols="30" pos="0,82" cell_width="75" cell_height="75" repeat_content="true" visible="{secondrow}">
+                    <item_stack name="0" />
+                </grid>
+            </rect>
+
+            <sprite depth="1" pos="0,6" height="8" width="1126" color="[mediumGrey]" sprite="menu_empty2px" globalopacity="false" type="sliced" />
+            <sprite depth="9" pos="0,6" height="8" width="1127" color="[black]" sprite="menu_empty2px" globalopacity="false" type="sliced" fillcenter="false" />
+            <sprite depth="4" pos="0,6" height="8" width="1125" color="{xpcolor}" globalopacity="false" type="filled" fill="{xp}" />
+
+            <rect pos="0,-77" width="565" height="8" controller="HUDStatBar" stat_type="Food" visible="{statvisible}">
+                <sprite depth="1" color="[mediumGrey]" sprite="menu_empty2px" globalopacity="false" type="sliced" />
+                <sprite depth="9" color="[black]" sprite="menu_empty2px" globalopacity="false" type="sliced" fillcenter="false" />
+
+                <filledsprite depth="5" pos="1,0" width="563" name="BarContent" color="0,255,54,128" globalopacity="false" type="filled" fill="0" />
+            </rect>
+
+            <rect pos="563,-77" width="564" height="8" controller="HUDStatBar" stat_type="Water" visible="{statvisible}">
+                <sprite depth="1" color="[mediumGrey]" sprite="menu_empty2px" globalopacity="false" type="sliced" />
+                <sprite depth="9" color="[black]" sprite="menu_empty2px" globalopacity="false" type="sliced" fillcenter="false" />
+
+                <filledsprite depth="5" pos="1,0" width="563" name="BarContent" color="0,54,255,160" globalopacity="false" type="filled" fill="0" />
+            </rect>
+        </rect>
+    </set>
+    <set xpath="/windows/window[@name='windowToolbelt']/@pos">-575, 92</set>
+
+    <append xpath="/windows/window[@name='windowToolbelt']/rect">
+        <!-- hotkey labels -->
+        <rect name="hotkey_labels" pos="3, -3">
+            <!--sprite depth="19" pos="-2,1" height="16" width="1126" color="0,0,0,250" type="sliced" foregroundlayer="true"/>-->
+            <label depth="20" pos="  0,0" width="75" height="15" font_size="14" effect="outline" effect_distance="1,1" effect_color="0, 0, 0, 255" color="" justify="center" text="{slot1}" />
+            <label depth="20" pos=" 75,0" width="75" height="15" font_size="14" effect="outline" effect_distance="1,1" effect_color="0, 0, 0, 255" color="" justify="center" text="{slot2}" />
+            <label depth="20" pos="150,0" width="75" height="15" font_size="14" effect="outline" effect_distance="1,1" effect_color="0, 0, 0, 255" color="" justify="center" text="{slot3}" />
+            <label depth="20" pos="225,0" width="75" height="15" font_size="14" effect="outline" effect_distance="1,1" effect_color="0, 0, 0, 255" color="" justify="center" text="{slot4}" />
+            <label depth="20" pos="300,0" width="75" height="15" font_size="14" effect="outline" effect_distance="1,1" effect_color="0, 0, 0, 255" color="" justify="center" text="{slot5}" />
+            <label depth="20" pos="375,0" width="75" height="15" font_size="14" effect="outline" effect_distance="1,1" effect_color="0, 0, 0, 255" color="" justify="center" text="{slot6}" />
+            <label depth="20" pos="450,0" width="75" height="15" font_size="14" effect="outline" effect_distance="1,1" effect_color="0, 0, 0, 255" color="" justify="center" text="{slot7}" />
+            <label depth="20" pos="525,0" width="75" height="15" font_size="14" effect="outline" effect_distance="1,1" effect_color="0, 0, 0, 255" color="" justify="center" text="{slot8}" />
+            <label depth="20" pos="600,0" width="75" height="15" font_size="14" effect="outline" effect_distance="1,1" effect_color="0, 0, 0, 255" color="" justify="center" text="{slot9}" />
+            <label depth="20" pos="675,0" width="75" height="15" font_size="14" effect="outline" effect_distance="1,1" effect_color="0, 0, 0, 255" color="" justify="center" text="{slot10}" />
+        </rect>
+    </append>
+    <append xpath="/windows/window[@name='windowToolbelt']//grid[@name='inventory' and @cols='15']/ancestor::window//rect[@name='hotkey_labels']">
+        <label depth="20" pos=" 750,0" width="75" height="15" font_size="14" effect="outline" effect_distance="1,1" effect_color="0, 0, 0, 255" color="" justify="center" text="{slot11}" />
+        <label depth="20" pos=" 825,0" width="75" height="15" font_size="14" effect="outline" effect_distance="1,1" effect_color="0, 0, 0, 255" color="" justify="center" text="{Inventory12}" />
+        <label depth="20" pos=" 900,0" width="75" height="15" font_size="14" effect="outline" effect_distance="1,1" effect_color="0, 0, 0, 255" color="" justify="center" text="{Inventory13}" />
+        <label depth="20" pos=" 975,0" width="75" height="15" font_size="14" effect="outline" effect_distance="1,1" effect_color="0, 0, 0, 255" color="" justify="center" text="{slot14}" />
+        <label depth="20" pos="1050,0" width="75" height="15" font_size="14" effect="outline" effect_distance="1,1" effect_color="0, 0, 0, 255" color="" justify="center" text="{slot15}" />
+    </append>
+</configs>
